@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "lint": "eslint public/\"**\" --ignore-pattern public/styles || true",
+    "lintfix": "eslint public/\"**\" --ignore-pattern public/styles --fix || true"
   },
   "author": "Zach Gawlik",
   "license": "ISC",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
@@ -22,6 +25,11 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-register": "^6.9.0",
     "css-loader": "^0.23.1",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
