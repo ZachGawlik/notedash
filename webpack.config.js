@@ -11,7 +11,7 @@ const PATHS = {
 process.env.BABEL_ENV = TARGET;
 
 const common = {
-  entry: path.join(PATHS.public, 'notedash.jsx'),
+  entry: path.join(PATHS.public, 'index.jsx'),
   resolve: {
     extensions: ['', '.js', '.jsx']
   },

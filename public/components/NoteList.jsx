@@ -9,6 +9,29 @@ const NoteList = ({ notes }) => (
   </div>
 );
 
+
+class NoteListWrapper extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {notes: []}
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:8000/api/notes/')
+      .then(response => response.json())
+      .then(notes => this.setState({notes: notes}));
+  }
+
+  render() {
+    return (
+      <div>
+        <NoteList notes={this.state.notes}></NoteList>
+      </div>
+    );
+  }
+}
+
 NoteList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -17,4 +40,4 @@ NoteList.propTypes = {
   }))
 };
 
-export default NoteList;
+export default NoteListWrapper;

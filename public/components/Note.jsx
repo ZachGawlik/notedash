@@ -6,14 +6,17 @@ const Note = ({ text, tags }) => (
       {text}
     </p>
     <ul className="note__tags">
-      {tags.map((tag) => <li className="note__tag" key={tag}>{tag}</li>)}
+      {tags.map((tag) => <li className="note__tag" key={tag.id}>{tag.name}</li>)}
     </ul>
   </div>
 );
 
 Note.propTypes = {
   text: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string
+  }))
 };
 
 export default Note;
