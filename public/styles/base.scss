@@ -1,3 +1,92 @@
-h1 {
-  color: red;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$tag-color: #919bba;
+
+body {
+  font-family: sans-serif;
+  width: 95%;
+  margin: 0 auto;
+  background: #444;
+}
+
+.title {
+  margin-bottom: 1em;
+  color: white;
+}
+
+.note-list__input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  padding-bottom: 2px;
+  width: 100%;
+
+  background: inherit;
+  color: white;
+}
+
+.note {
+  margin-bottom: 3em;
+
+  &__text {
+    padding: 1em;
+    border-radius: .5em;
+    background-color: white;
+  }
+  &__tags {
+    padding-left: 0;
+  }
+  &__tag {
+    &:before {
+      content: "#";
+      padding-right: 5px;
+    }
+
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 0 10px 5px 0;
+    border: 1px solid $tag-color;
+    border-radius: 10px;
+
+    color: $tag-color;
+    list-style: none;
+  }
+}
+
+
+@media (min-width: $screen-sm) {
+  body {
+    width: 90%;
+  }
+  .note-list__input {
+    width: 70%;
+  }
+  .note {
+    &__text {
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: top;
+      width: 70%;
+    }
+    &__tags {
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: top;
+      width: 30%;
+      padding-left: 1em;
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  body {
+    width: 85%;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  body {
+    width: 80%;
+  }
 }
