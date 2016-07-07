@@ -14,21 +14,17 @@ class NoteListWrapper extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {notes: []}
+    this.state = { notes: [] };
   }
 
   componentWillMount() {
     fetch('http://localhost:8000/api/notes/')
       .then(response => response.json())
-      .then(notes => this.setState({notes: notes}));
+      .then(notes => this.setState({ notes }));
   }
 
   render() {
-    return (
-      <div>
-        <NoteList notes={this.state.notes}></NoteList>
-      </div>
-    );
+    return <NoteList notes={this.state.notes} />;
   }
 }
 
