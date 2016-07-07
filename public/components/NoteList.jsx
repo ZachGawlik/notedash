@@ -11,7 +11,7 @@ const NoteList = ({ notes }) => (
 
 
 class NoteListWrapper extends React.Component {
-
+  
   constructor(props) {
     super(props);
     this.state = { notes: [] };

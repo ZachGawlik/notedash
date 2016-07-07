@@ -27,7 +27,7 @@ body {
 }
 
 .note {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 
   &__text {
     padding: 1em;
@@ -63,6 +63,8 @@ body {
     width: 70%;
   }
   .note {
+    margin-bottom: 0;
+    
     &__text {
       box-sizing: border-box;
       display: inline-block;
