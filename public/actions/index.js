@@ -1,9 +1,13 @@
 const apiRoot = 'http://localhost:8000/api';
 
-export function receiveNotes(notes) {
+import { arrayOf, normalize } from 'normalizr';
+import noteSchema from '../schemas/note';
+
+function receiveNotes(noteEntities, noteIds) {
   return {
     type: 'RECEIVE_NOTES',
-    notes
+    noteEntities,
+    noteIds
   };
 }
 
@@ -11,6 +15,9 @@ export function fetchNotes() {
   return (dispatch) => {
     fetch(`${apiRoot}/notes`)
       .then(response => response.json())
-      .then(notes => dispatch(receiveNotes(notes)));
+      .then(notes => {
+        const normalized = normalize(notes, arrayOf(noteSchema));
+        dispatch(receiveNotes(normalized.entities.notes, normalized.result));
+      });
   };
 }

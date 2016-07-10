@@ -9,7 +9,7 @@ class NoteList extends React.Component {
   }
 
   render() {
-    const notes = this.props.notes;
+    const { notes } = this.props;
     return (
       <div className="note-list">
         <input className="note-list__input" type="text" placeholder="Type Note or #Search" />

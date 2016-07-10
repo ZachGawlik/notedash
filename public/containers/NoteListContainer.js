@@ -1,11 +1,12 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
+import { getNotes } from '../reducers';
 
 import NoteList from '../components/NoteList';
 
 const mapStateToProps = (state) => ({
-  notes: state.notes
+  notes: getNotes(state)
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 
 const NoteListContainer = connect(mapStateToProps, mapDispatchToProps)(NoteList);
 
-export default NoteListContainer
+export default NoteListContainer;
